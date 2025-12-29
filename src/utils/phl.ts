@@ -3,7 +3,7 @@ interface PHLInput {
     isLifeline: boolean;
   }
   
-  const PHL_RATE = 2.23;
+  const PHL_RATE = 3.23;
   
   export function calculatePHL({
     units,

@@ -3,7 +3,7 @@ interface FCAInput {
     consumerType: "normal" | "protected";
   }
   
-  const FCA_RATE = 0.5;
+  const FCA_RATE = -0.5;
   
   export function calculateFCA({
     units,

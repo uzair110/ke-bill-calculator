@@ -39,7 +39,7 @@ export default function EnergySavingTips({ units }: Props) {
         }}
       >
         <AlertTitle sx={{ fontWeight: 700, fontSize: 18, color: "#92400e" }}>
-          Energy Saving Tips
+          Electricity Saving Tips based on your consumption
         </AlertTitle>
         <List dense>
           <ListItem sx={{ px: 0 }}>
@@ -77,9 +77,9 @@ export default function EnergySavingTips({ units }: Props) {
             <ListItemText
               primary={
                 <Typography variant="body2" sx={{ color: "#1f2937" }}>
-                  Replacing Conventional Bulbs with LEDs can reduce electricity consumption by approximately{" "}
-                  <strong>40 units</strong> per month which is around{" "}
-                  <strong>{Math.round((40 / units) * 100)}%</strong> of your consumption
+                  Replacing Conventional Bulbs with LEDs can reduce electricity consumption by {" "}
+                  <strong>{Math.round((40 / units) * 100)}% </strong>
+                  (around 40 units out of {Math.round(units)} for normal householding lights)
                 </Typography>
               }
             />

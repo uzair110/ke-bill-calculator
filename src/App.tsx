@@ -15,9 +15,12 @@ import {
   Paper,
   Stack,
 } from "@mui/material";
+import { Info } from "@mui/icons-material";
 import { calculateBill, type BillingBreakdown } from "./utils/billing";
 import BillBreakdown from "./components/BillBreakdown";
 import EnergySavingTips from "./components/EnergySavingTips";
+import UnderstandBillDialog from "./components/UnderstandBillDialog";
+import GeneralTipsAndNotes from "./components/GeneralTipsAndNotes";
 
 type ConsumerType = "normal" | "protected";
 
@@ -38,6 +41,7 @@ export default function App() {
     units: 0,
   });
   const [bill, setBill] = useState<BillingBreakdown | null>(null);
+  const [openDialog, setOpenDialog] = useState(false);
 
   const handleCalculate = () => {
     const result = calculateBill({
@@ -93,16 +97,33 @@ export default function App() {
             borderBottom: "4px solid #000",
           }}
         >
-          <Stack direction="row" alignItems="center" spacing={3}>
-            <img src="/ke-logo.png" alt="K-Electric" width={80} height={80} />
-            <Box>
-              <Typography variant="h3" fontWeight={900} color="white" letterSpacing={-1}>
-                K-ELECTRIC BILLING CALCULATOR
-              </Typography>
-              <Typography variant="body1" color="white" fontWeight={500} mt={0.5}>
-                Professional Bill Estimation Tool
-              </Typography>
-            </Box>
+          <Stack direction="row" alignItems="center" justifyContent="space-between">
+            <Stack direction="row" alignItems="center" spacing={3}>
+              <img src="/ke-logo.png" alt="K-Electric" width={80} height={80} />
+              <Box>
+                <Typography variant="h3" fontWeight={900} color="white" letterSpacing={-1}>
+                  K-ELECTRIC BILLING CALCULATOR
+                </Typography>
+              </Box>
+            </Stack>
+            <Button
+              variant="contained"
+              startIcon={<Info />}
+              onClick={() => setOpenDialog(true)}
+              sx={{
+                backgroundColor: "#fff",
+                color: "#000",
+                fontWeight: 700,
+                px: 3,
+                py: 1.5,
+                borderRadius: 0,
+                "&:hover": {
+                  backgroundColor: "#f5f5f5",
+                },
+              }}
+            >
+              UNDERSTAND YOUR BILL
+            </Button>
           </Stack>
         </Paper>
 
@@ -352,6 +373,9 @@ export default function App() {
             />
           </Box>
 
+          {/* General Tips and Notes */}
+          <GeneralTipsAndNotes />
+
           {/* Calculate Button */}
           <Box mt={5}>
             <Button
@@ -395,6 +419,12 @@ export default function App() {
           </Typography>
         </Box>
       </Container>
+
+      {/* Understand Your Bill Dialog */}
+      <UnderstandBillDialog
+        open={openDialog}
+        onClose={() => setOpenDialog(false)}
+      />
     </Box>
   );
 }
