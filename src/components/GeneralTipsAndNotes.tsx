@@ -7,8 +7,8 @@ export default function GeneralTipsAndNotes() {
       <Box
         sx={{
           p: 3,
-          backgroundColor: "#f5f5f5",
-          border: "2px solid #000",
+          backgroundColor: "white",
+          border: (theme) => `2px solid ${theme.palette.primary.main}`,
           mb: 3,
         }}
       >
@@ -48,7 +48,7 @@ export default function GeneralTipsAndNotes() {
         sx={{
           p: 3,
           backgroundColor: "#fff",
-          border: "2px solid #000",
+          border: (theme) => `2px solid ${theme.palette.primary.main}`,
         }}
       >
         <Typography variant="h6" fontWeight={900} mb={2} textTransform="uppercase">

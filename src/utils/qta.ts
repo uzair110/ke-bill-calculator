@@ -3,7 +3,7 @@ interface QTAInput {
     isLifeline: boolean;
   }
   
-  const QTA_RATE = 0.33;
+  const QTA_RATE = -0.5;
   
   export function calculateQTA({
     units,

@@ -55,6 +55,7 @@ export default function App() {
   };
 
   const handleConsumerTypeChange = (type: ConsumerType) => {
+    setBill(null); // Reset bill when consumer type changes
     setState(prev =>
       type === "protected"
         ? {
@@ -81,7 +82,7 @@ export default function App() {
     <Box
       sx={{
         minHeight: "100vh",
-        backgroundColor: "#f5f5f5",
+        backgroundColor: "#ffffff",
         py: 4,
       }}
     >
@@ -92,9 +93,9 @@ export default function App() {
           sx={{
             p: 4,
             mb: 3,
-            backgroundColor: "#1a1a1a",
+            backgroundColor: (theme) => theme.palette.primary.main,
             borderRadius: 0,
-            borderBottom: "4px solid #000",
+            borderBottom: (theme) => `4px solid ${theme.palette.primary.main}`,
           }}
         >
           <Stack direction="row" alignItems="center" justifyContent="space-between">
@@ -133,8 +134,8 @@ export default function App() {
           sx={{
             p: 5,
             borderRadius: 0,
-            backgroundColor: "white",
-            border: "2px solid #000",
+            backgroundColor: (theme) => theme.palette.background.paper,
+            border: (theme) => `2px solid ${theme.palette.primary.main}`,
           }}
         >
           {/* Consumer Type */}
@@ -143,7 +144,7 @@ export default function App() {
               sx={{
                 fontSize: 18,
                 fontWeight: 700,
-                color: "#000",
+                color: (theme) => theme.palette.text.primary,
                 mb: 2,
                 textTransform: "uppercase",
                 letterSpacing: 0.5
@@ -161,34 +162,34 @@ export default function App() {
             >
               <FormControlLabel
                 value="normal"
-                control={<Radio sx={{ color: "#000", "&.Mui-checked": { color: "#000" } }} />}
+                control={<Radio sx={{ color: (theme) => theme.palette.primary.main, "&.Mui-checked": { color: (theme) => theme.palette.primary.main } }} />}
                 label={
-                  <Typography fontWeight={600} fontSize={16}>
+                  <Typography fontWeight={600} fontSize={16} color="black">
                     Normal Consumer
                   </Typography>
                 }
                 sx={{
-                  border: state.consumerType === "normal" ? "2px solid #000" : "2px solid #e0e0e0",
+                  border: (theme) => state.consumerType === "normal" ? `3px solid ${theme.palette.primary.main}` : `2px solid #e0e0e0`,
                   px: 3,
                   py: 1.5,
                   borderRadius: 0,
-                  backgroundColor: state.consumerType === "normal" ? "#f5f5f5" : "white",
+                  backgroundColor: "white",
                 }}
               />
               <FormControlLabel
                 value="protected"
-                control={<Radio sx={{ color: "#000", "&.Mui-checked": { color: "#000" } }} />}
+                control={<Radio sx={{ color: (theme) => theme.palette.primary.main, "&.Mui-checked": { color: (theme) => theme.palette.primary.main } }} />}
                 label={
-                  <Typography fontWeight={600} fontSize={16}>
+                  <Typography fontWeight={600} fontSize={16} color="black">
                     Protected Consumer
                   </Typography>
                 }
                 sx={{
-                  border: state.consumerType === "protected" ? "2px solid #000" : "2px solid #e0e0e0",
+                  border: (theme) => state.consumerType === "protected" ? `3px solid ${theme.palette.primary.main}` : `2px solid #e0e0e0`,
                   px: 3,
                   py: 1.5,
                   borderRadius: 0,
-                  backgroundColor: state.consumerType === "protected" ? "#f5f5f5" : "white",
+                  backgroundColor: "white",
                 }}
               />
             </RadioGroup>
@@ -200,7 +201,7 @@ export default function App() {
               sx={{
                 fontSize: 18,
                 fontWeight: 700,
-                color: state.consumerType === "protected" ? "#000" : "#999",
+                color: (theme) => state.consumerType === "protected" ? theme.palette.text.primary : theme.palette.text.disabled,
                 mb: 2,
                 textTransform: "uppercase",
                 letterSpacing: 0.5
@@ -222,10 +223,10 @@ export default function App() {
                 fontWeight: 600,
                 "& .MuiOutlinedInput-notchedOutline": {
                   borderWidth: 2,
-                  borderColor: "#000",
+                  borderColor: (theme) => theme.palette.primary.main,
                 },
                 "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#e0e0e0",
+                  borderColor: (theme) => theme.palette.primary.dark,
                 },
               }}
             >
@@ -240,7 +241,7 @@ export default function App() {
               sx={{
                 fontSize: 18,
                 fontWeight: 700,
-                color: state.consumerType === "normal" ? "#000" : "#999",
+                color: (theme) => state.consumerType === "normal" ? theme.palette.text.primary : theme.palette.text.disabled,
                 mb: 2,
                 textTransform: "uppercase",
                 letterSpacing: 0.5
@@ -262,10 +263,10 @@ export default function App() {
                 fontWeight: 600,
                 "& .MuiOutlinedInput-notchedOutline": {
                   borderWidth: 2,
-                  borderColor: "#000",
+                  borderColor: (theme) => theme.palette.primary.main,
                 },
                 "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#e0e0e0",
+                  borderColor: (theme) => theme.palette.primary.dark,
                 },
               }}
             >
@@ -280,7 +281,7 @@ export default function App() {
               sx={{
                 fontSize: 18,
                 fontWeight: 700,
-                color: state.consumerType === "normal" ? "#000" : "#999",
+                color: (theme) => state.consumerType === "normal" ? theme.palette.text.primary : theme.palette.text.disabled,
                 mb: 2,
                 textTransform: "uppercase",
                 letterSpacing: 0.5
@@ -302,10 +303,10 @@ export default function App() {
                 fontWeight: 600,
                 "& .MuiOutlinedInput-notchedOutline": {
                   borderWidth: 2,
-                  borderColor: "#000",
+                  borderColor: (theme) => theme.palette.primary.main,
                 },
                 "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#e0e0e0",
+                  borderColor: (theme) => theme.palette.primary.dark,
                 },
               }}
             >
@@ -320,7 +321,7 @@ export default function App() {
               sx={{
                 fontSize: 18,
                 fontWeight: 700,
-                color: "#000",
+                color: (theme) => theme.palette.text.primary,
                 mb: 2,
                 display: "block",
                 textTransform: "uppercase",
@@ -345,12 +346,14 @@ export default function App() {
                   ? "Maximum 200 units for protected consumers"
                   : ""
               }
-              onChange={e =>
+              onChange={e => {
+                const value = Number(e.target.value);
+                const maxUnits = state.consumerType === "protected" ? 200 : Infinity;
                 setState(prev => ({
                   ...prev,
-                  units: Number(e.target.value),
-                }))
-              }
+                  units: value > maxUnits ? maxUnits : (value < 0 ? 0 : value),
+                }));
+              }}
               sx={{
                 "& .MuiOutlinedInput-root": {
                   borderRadius: 0,
@@ -358,15 +361,15 @@ export default function App() {
                   fontWeight: 600,
                   "& fieldset": {
                     borderWidth: 2,
-                    borderColor: "#000",
+                    borderColor: (theme) => theme.palette.primary.main,
                   },
                   "&:hover fieldset": {
                     borderWidth: 2,
-                    borderColor: "#000",
+                    borderColor: (theme) => theme.palette.primary.main,
                   },
                   "&.Mui-focused fieldset": {
                     borderWidth: 2,
-                    borderColor: "#000",
+                    borderColor: (theme) => theme.palette.primary.main,
                   },
                 },
               }}
@@ -389,11 +392,11 @@ export default function App() {
                 fontSize: 18,
                 fontWeight: 900,
                 borderRadius: 0,
-                backgroundColor: "#000",
-                color: "#fff",
+                backgroundColor: (theme) => theme.palette.primary.main,
+                color: (theme) => theme.palette.primary.contrastText,
                 letterSpacing: 1,
                 "&:hover": {
-                  backgroundColor: "#333",
+                  backgroundColor: (theme) => theme.palette.primary.dark,
                 },
                 "&:disabled": {
                   backgroundColor: "#ccc",
@@ -414,7 +417,7 @@ export default function App() {
 
         {/* Footer */}
         <Box mt={4} textAlign="center" pb={2}>
-          <Typography variant="body2" fontWeight={600} color="#000">
+          <Typography variant="body2" fontWeight={600} sx={{ color: (theme) => theme.palette.text.primary }}>
             © 2025 K-ELECTRIC BILLING CALCULATOR
           </Typography>
         </Box>

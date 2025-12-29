@@ -18,8 +18,8 @@ import {
         sx={{
           mt: 4,
           borderRadius: 0,
-          backgroundColor: "white",
-          border: "2px solid #000",
+          backgroundColor: (theme) => theme.palette.background.paper,
+          border: (theme) => `2px solid ${theme.palette.primary.main}`,
           overflow: "hidden",
         }}
         elevation={0}
@@ -27,9 +27,9 @@ import {
         {/* Header */}
         <Box
           sx={{
-            backgroundColor: "#1a1a1a",
+            backgroundColor: (theme) => theme.palette.primary.main,
             p: 3,
-            borderBottom: "4px solid #000",
+            borderBottom: (theme) => `4px solid ${theme.palette.primary.main}`,
           }}
         >
           <Typography variant="h4" fontWeight={900} color="white" letterSpacing={-0.5}>
@@ -47,7 +47,7 @@ import {
               sx={{
                 textTransform: "uppercase",
                 letterSpacing: 1,
-                borderBottom: "3px solid #000",
+                borderBottom: (theme) => `3px solid ${theme.palette.primary.main}`,
                 pb: 1,
               }}
             >
@@ -67,8 +67,8 @@ import {
             sx={{
               p: 3,
               mb: 4,
-              backgroundColor: "#f5f5f5",
-              border: "2px solid #000",
+              backgroundColor: "white",
+              border: (theme) => `3px solid ${theme.palette.primary.main}`,
             }}
           >
             <Stack direction="row" justifyContent="space-between" alignItems="center">
@@ -90,7 +90,7 @@ import {
               sx={{
                 textTransform: "uppercase",
                 letterSpacing: 1,
-                borderBottom: "3px solid #000",
+                borderBottom: (theme) => `3px solid ${theme.palette.primary.main}`,
                 pb: 1,
               }}
             >
@@ -109,8 +109,8 @@ import {
             sx={{
               p: 3,
               mb: 4,
-              backgroundColor: "#f5f5f5",
-              border: "2px solid #000",
+              backgroundColor: "white",
+              border: (theme) => `3px solid ${theme.palette.primary.main}`,
             }}
           >
             <Stack direction="row" justifyContent="space-between" alignItems="center">
@@ -123,14 +123,14 @@ import {
             </Stack>
           </Box>
 
-          <Divider sx={{ my: 4, borderWidth: 2, borderColor: "#000" }} />
+          <Divider sx={{ my: 4, borderWidth: 2, borderColor: (theme) => theme.palette.primary.main }} />
 
           {/* Total Bill */}
           <Box
             sx={{
               p: 4,
-              backgroundColor: "#1a1a1a",
-              border: "4px solid #000",
+              backgroundColor: (theme) => theme.palette.primary.main,
+              border: (theme) => `4px solid ${theme.palette.primary.main}`,
             }}
           >
             <Stack direction="row" justifyContent="space-between" alignItems="center">

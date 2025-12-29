@@ -27,14 +27,14 @@ export default function UnderstandBillDialog({ open, onClose }: Props) {
         paper: {
           sx: {
             borderRadius: 0,
-            border: "4px solid #000",
+            border: (theme) => `4px solid ${theme.palette.primary.main}`,
           },
         },
       }}
     >
       <DialogTitle
         sx={{
-          backgroundColor: "#1a1a1a",
+          backgroundColor: (theme) => theme.palette.primary.dark,
           color: "white",
           p: 3,
           display: "flex",
@@ -62,7 +62,7 @@ export default function UnderstandBillDialog({ open, onClose }: Props) {
           variant="h5"
           fontWeight={900}
           mb={2}
-          sx={{ borderBottom: "3px solid #000", pb: 1 }}
+          sx={{ borderBottom: (theme) => `3px solid ${theme.palette.primary.main}`, pb: 1 }}
         >
           👤 CUSTOMER CATEGORIES
         </Typography>
@@ -137,7 +137,7 @@ export default function UnderstandBillDialog({ open, onClose }: Props) {
           </Box>
         </Box>
 
-        <Box mb={4} sx={{ backgroundColor: "#f5f5f5", p: 3, border: "2px solid #000" }}>
+        <Box mb={4} sx={{ backgroundColor: "white", p: 3, border: (theme) => `2px solid ${theme.palette.primary.main}` }}>
           <Typography variant="h6" fontWeight={800} mb={2} textTransform="uppercase">
             Time of Use (ToU) Customers
           </Typography>
@@ -158,31 +158,31 @@ export default function UnderstandBillDialog({ open, onClose }: Props) {
               Common for higher-consumption households
             </Typography>
           </Box>
-          <Box sx={{ border: "2px solid #000", backgroundColor: "white" }}>
-            <Stack direction="row" sx={{ borderBottom: "2px solid #000" }}>
-              <Box sx={{ flex: 1, p: 2, borderRight: "2px solid #000", backgroundColor: "#1a1a1a" }}>
+          <Box sx={{ border: (theme) => `2px solid ${theme.palette.primary.main}`, backgroundColor: "white" }}>
+            <Stack direction="row" sx={{ borderBottom: (theme) => `2px solid ${theme.palette.primary.main}` }}>
+              <Box sx={{ flex: 1, p: 2, borderRight: (theme) => `2px solid ${theme.palette.primary.main}`, backgroundColor: (theme) => theme.palette.primary.dark }}>
                 <Typography fontWeight={900} color="white" textAlign="center">
                   PERIOD
                 </Typography>
               </Box>
-              <Box sx={{ flex: 1, p: 2, borderRight: "2px solid #000", backgroundColor: "#1a1a1a" }}>
+              <Box sx={{ flex: 1, p: 2, borderRight: (theme) => `2px solid ${theme.palette.primary.main}`, backgroundColor: (theme) => theme.palette.primary.dark }}>
                 <Typography fontWeight={900} color="white" textAlign="center">
                   PEAK TIME
                 </Typography>
               </Box>
-              <Box sx={{ flex: 1, p: 2, backgroundColor: "#1a1a1a" }}>
+              <Box sx={{ flex: 1, p: 2, backgroundColor: (theme) => theme.palette.primary.dark }}>
                 <Typography fontWeight={900} color="white" textAlign="center">
                   OFF-PEAK TIME
                 </Typography>
               </Box>
             </Stack>
-            <Stack direction="row" sx={{ borderBottom: "2px solid #000" }}>
-              <Box sx={{ flex: 1, p: 2, borderRight: "2px solid #000" }}>
+            <Stack direction="row" sx={{ borderBottom: (theme) => `2px solid ${theme.palette.primary.main}` }}>
+              <Box sx={{ flex: 1, p: 2, borderRight: (theme) => `2px solid ${theme.palette.primary.main}` }}>
                 <Typography fontWeight={700} textAlign="center">
                   April to October
                 </Typography>
               </Box>
-              <Box sx={{ flex: 1, p: 2, borderRight: "2px solid #000" }}>
+              <Box sx={{ flex: 1, p: 2, borderRight: (theme) => `2px solid ${theme.palette.primary.main}` }}>
                 <Typography fontWeight={700} textAlign="center">
                   6:30 PM to 10:30 PM
                 </Typography>
@@ -194,12 +194,12 @@ export default function UnderstandBillDialog({ open, onClose }: Props) {
               </Box>
             </Stack>
             <Stack direction="row">
-              <Box sx={{ flex: 1, p: 2, borderRight: "2px solid #000" }}>
+              <Box sx={{ flex: 1, p: 2, borderRight: (theme) => `2px solid ${theme.palette.primary.main}` }}>
                 <Typography fontWeight={700} textAlign="center">
                   November to March
                 </Typography>
               </Box>
-              <Box sx={{ flex: 1, p: 2, borderRight: "2px solid #000" }}>
+              <Box sx={{ flex: 1, p: 2, borderRight: (theme) => `2px solid ${theme.palette.primary.main}` }}>
                 <Typography fontWeight={700} textAlign="center">
                   6:00 PM to 10:00 PM
                 </Typography>
@@ -220,7 +220,7 @@ export default function UnderstandBillDialog({ open, onClose }: Props) {
           variant="h5"
           fontWeight={900}
           mb={2}
-          sx={{ borderBottom: "3px solid #000", pb: 1 }}
+          sx={{ borderBottom: (theme) => `3px solid ${theme.palette.primary.main}`, pb: 1 }}
         >
           💡 CORE ELECTRICITY CHARGES
         </Typography>
@@ -266,7 +266,7 @@ export default function UnderstandBillDialog({ open, onClose }: Props) {
           variant="h5"
           fontWeight={900}
           mb={2}
-          sx={{ borderBottom: "3px solid #000", pb: 1 }}
+          sx={{ borderBottom: (theme) => `3px solid ${theme.palette.primary.main}`, pb: 1 }}
         >
           🔄 ADJUSTMENT & SURCHARGES
         </Typography>
@@ -347,7 +347,7 @@ export default function UnderstandBillDialog({ open, onClose }: Props) {
           variant="h5"
           fontWeight={900}
           mb={2}
-          sx={{ borderBottom: "3px solid #000", pb: 1 }}
+          sx={{ borderBottom: (theme) => `3px solid ${theme.palette.primary.main}`, pb: 1 }}
         >
           🏛️ GOVERNMENT TAXES & DUTIES
         </Typography>
@@ -372,7 +372,7 @@ export default function UnderstandBillDialog({ open, onClose }: Props) {
           variant="h5"
           fontWeight={900}
           mb={2}
-          sx={{ borderBottom: "3px solid #000", pb: 1 }}
+          sx={{ borderBottom: (theme) => `3px solid ${theme.palette.primary.main}`, pb: 1 }}
         >
           📌 KEY THINGS TO REMEMBER
         </Typography>
@@ -396,14 +396,14 @@ export default function UnderstandBillDialog({ open, onClose }: Props) {
             variant="contained"
             onClick={onClose}
             sx={{
-              backgroundColor: "#1a1a1a",
+              backgroundColor: (theme) => theme.palette.primary.dark,
               color: "white",
               fontWeight: 900,
               px: 5,
               py: 1.5,
               borderRadius: 0,
               "&:hover": {
-                backgroundColor: "#000",
+                backgroundColor: (theme) => theme.palette.primary.main,
               },
             }}
           >
