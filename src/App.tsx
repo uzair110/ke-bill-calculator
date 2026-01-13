@@ -413,7 +413,7 @@ export default function App() {
         {bill && <BillBreakdown bill={bill} />}
 
         {/* Energy Saving Tips */}
-        {bill && state.units >= 100 && <EnergySavingTips units={state.units} />}
+        {bill && state.units >= 100 && <EnergySavingTips units={state.units} consumerType={state.consumerType} />}
 
         {/* Footer */}
         <Box mt={4} textAlign="center" pb={2}>

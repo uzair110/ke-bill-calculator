@@ -17,9 +17,10 @@ import {
 
 interface Props {
   units: number;
+  consumerType: "normal" | "protected";
 }
 
-export default function EnergySavingTips({ units }: Props) {
+export default function EnergySavingTips({ units, consumerType }: Props) {
   return (
     <Paper
       elevation={4}
@@ -56,7 +57,7 @@ export default function EnergySavingTips({ units }: Props) {
               }
             />
           </ListItem>
-          <ListItem sx={{ px: 0 }}>
+          {consumerType === "normal" && <ListItem sx={{ px: 0 }}>
             <ListItemIcon sx={{ minWidth: 40 }}>
               <AcUnit sx={{ color: "#0ea5e9" }} />
             </ListItemIcon>
@@ -69,7 +70,7 @@ export default function EnergySavingTips({ units }: Props) {
                 </Typography>
               }
             />
-          </ListItem>
+          </ListItem>}
           <ListItem sx={{ px: 0 }}>
             <ListItemIcon sx={{ minWidth: 40 }}>
               <Lightbulb sx={{ color: "#eab308" }} />

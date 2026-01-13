@@ -39,39 +39,40 @@ export function calculateBill({
   isTimeOfUse,
   isIncomeTaxExempt,
 }: BillingInput): BillingBreakdown {
-  const variableCharges = calculateVariableCharges({
+  const variableCharges = Math.round(calculateVariableCharges({
     units,
     consumerType,
     isLifeline,
     isTimeOfUse,
-  });
+  }));
 
-  const fixedCharges = calculateFixedCharges({
+  const fixedCharges = Math.round(calculateFixedCharges({
     units,
     isTimeOfUse,
-  });
+  }));
 
-  const qta = calculateQTA({
+  const qta = Math.round(calculateQTA({
     units,
     isLifeline,
-  });
+  }));
 
-  const fca = calculateFCA({
+  const fca = Math.round(calculateFCA({
     units,
     consumerType,
-  });
+  }));
 
-  const phl = calculatePHL({
+  const phl = Math.round(calculatePHL({
     units,
     isLifeline,
-  });
+  }));
 
-  const totalElectricityCharges =
+  const totalElectricityCharges = Math.round(
     variableCharges +
     fixedCharges +
     qta +
     fca +
-    phl;
+    phl
+  );
 
   const { electricityDuty, salesTax, incomeTax } =
     calculateTaxes({
@@ -79,17 +80,19 @@ export function calculateBill({
       isIncomeTaxExempt,
     });
 
-  const kmc = calculateKMC({ units });
+  const kmc = Math.round(calculateKMC({ units }));
 
-  const taxesAndDuties =
+  const taxesAndDuties = Math.round(
     electricityDuty +
     salesTax +
     incomeTax +
-    kmc;
+    kmc
+  );
 
-  const totalBill =
+  const totalBill = Math.round(
     totalElectricityCharges +
-    taxesAndDuties;
+    taxesAndDuties
+  );
 
   return {
     variableCharges,
@@ -100,9 +103,9 @@ export function calculateBill({
 
     totalElectricityCharges,
 
-    electricityDuty,
-    salesTax,
-    incomeTax,
+    electricityDuty: Math.round(electricityDuty),
+    salesTax: Math.round(salesTax),
+    incomeTax: Math.round(incomeTax),
     kmc,
 
     taxesAndDuties,
