@@ -337,7 +337,7 @@ export default function App() {
               slotProps={{
                 htmlInput: { min: 0, max: state.consumerType === "protected" ? 200 : undefined }
               }}
-              value={state.units}
+              value={state.units === 0 ? "" : state.units}
               error={isProtectedUnitsExceeded}
               helperText={
                 isProtectedUnitsExceeded
@@ -347,7 +347,7 @@ export default function App() {
                   : ""
               }
               onChange={e => {
-                const value = Number(e.target.value);
+                const value = e.target.value === "" ? 0 : Number(e.target.value);
                 const maxUnits = state.consumerType === "protected" ? 200 : Infinity;
                 setState(prev => ({
                   ...prev,
